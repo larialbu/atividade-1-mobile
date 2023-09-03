@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromo</title>
+    <style>
+        /* Estilos CSS aqui */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Palíndromo</h1>
+    <p>Digite uma palavra para verificar se é um palíndromo:</p>
+    <input type="text" id="inputWord" placeholder="Digite uma palavra">
+    <button onclick="checkPalindrome()">Verificar</button>
+    <p id="result"></p>
+
+    <script>
+        // JavaScript aqui
+        function isPalindrome(word) {
+            word = word.toLowerCase().replace(/\s/g, '');
+            const reversedWord = word.split('').reverse().join('');
+            return word === reversedWord;
+        }
+
+        function checkPalindrome() {
+            const inputWord = document.getElementById('inputWord').value;
+            const resultElement = document.getElementById('result');
+
+            if (isPalindrome(inputWord)) {
+                resultElement.textContent = inputWord + " é um palíndromo!";
+            } else {
+                resultElement.textContent = inputWord + " não é um palíndromo.";
+            }
+        }
+    </script>
+</body>
+</html>
